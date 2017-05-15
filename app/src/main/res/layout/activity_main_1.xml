@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  UVCCamera
+  ~  library and sample to access to UVC web camera on non-rooted Android device
+  ~
+  ~ Copyright (c) 2014-2017 saki t_saki@serenegiant.com
+  ~
+  ~  Licensed under the Apache License, Version 2.0 (the "License");
+  ~  you may not use this file except in compliance with the License.
+  ~   You may obtain a copy of the License at
+  ~
+  ~      http://www.apache.org/licenses/LICENSE-2.0
+  ~
+  ~   Unless required by applicable law or agreed to in writing, software
+  ~   distributed under the License is distributed on an "AS IS" BASIS,
+  ~   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  ~   See the License for the specific language governing permissions and
+  ~   limitations under the License.
+  ~
+  ~  All files in the folder are under this Apache License, Version 2.0.
+  ~  Files in the libjpeg-turbo, libusb, libuvc, rapidjson folder
+  ~  may have a different license, see the respective files.
+  -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff000000"
+    android:keepScreenOn="true"
+    tools:ignore="MergeRootFrame" >
+
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+		android:baselineAligned="false"
+        android:id="@+id/linearLayout">
+        <com.serenegiant.widget.UVCCameraTextureView
+            android:id="@+id/camera_view_L"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"/>
+        <com.serenegiant.widget.UVCCameraTextureView
+            android:id="@+id/camera_view_R"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <TextView
+        android:text="未连接"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/count_time"
+        android:textColor="@color/RED"
+        android:layout_marginRight="10dp"
+        android:lines="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+         />
+    <Chronometer
+        android:format="00:00:00"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/recod_time"
+        android:textColor="@color/WHITE"
+        android:visibility="gone"
+        android:layout_marginRight="10dp"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/count_time"/>
+
+    <ImageButton
+        android:id="@+id/recod_btn"
+        android:layout_width="@dimen/button_size"
+        android:layout_height="@dimen/button_size"
+        android:src="@android:drawable/ic_media_play"
+        android:layout_marginRight="10dp"
+        android:alpha="0.8"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/image_lib" />
+
+    <ImageButton
+        android:src="@android:drawable/ic_menu_camera"
+        android:text="拍照"
+        android:layout_width="@dimen/button_size"
+        android:layout_height="@dimen/button_size"
+        android:id="@+id/capture_btn"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <ImageButton
+        android:layout_width="@dimen/button_size"
+        android:layout_height="@dimen/button_size"
+        android:src="@android:drawable/ic_menu_gallery"
+        android:id="@+id/image_lib"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="10dp"
+        />
+</RelativeLayout>

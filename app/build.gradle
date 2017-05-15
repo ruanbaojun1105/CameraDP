@@ -1,0 +1,51 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion versionCompiler
+    buildToolsVersion versionBuildTool
+
+    compileOptions {
+        sourceCompatibility javaSourceCompatibility
+        targetCompatibility javaTargetCompatibility
+    }
+    defaultConfig {
+        applicationId "com.hwx.camera_doul.cameradp"
+        minSdkVersion 18
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        /*externalNativeBuild {
+            cmake {
+                cppFlags ""
+            }
+        }*/
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    /*externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }*/
+}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
+    //compile 'com.googlecode.mp4parser:isoparser:1.1.21'
+    compile project(':usbCameraCommon')
+
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.8.5'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    //fragment
+    compile 'me.yokeyword:fragmentation:0.10.1'
+}

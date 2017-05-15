@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CameraDP</string>
+    <string name="dff">计时:</string>
+    <string name="ddfa">支持OTG</string>
+    <string name="fvd">不支持OTG</string>
+    <string name="dvasd">已插入USB</string>
+    <string name="vdaf">已连接</string>
+    <string name="rtra">断开连接</string>
+</resources>
